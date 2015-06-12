@@ -480,7 +480,7 @@ ModelImporter:
       name: HeroiAtacando1
       takeName: Armature|ArmatureAction
       firstFrame: 202
-      lastFrame: 248
+      lastFrame: 230
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

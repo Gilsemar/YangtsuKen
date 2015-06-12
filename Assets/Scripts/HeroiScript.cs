@@ -8,15 +8,20 @@ public class HeroiScript : MonoBehaviour {
 	public int vida;
 	float tempoAtaque;
 	bool noAtaque;
+	public GameObject Heroi;
+	public GUIText vidaTexto;
 	// Use this for initialization
 	void Start () {
 		controleGolpe = false;
-		velocidadePercurso = 40;
+		velocidadePercurso = 60;
 		velocidadeRotacao = 60;
 		controlePulo = true;
 		forcaPulo = 10;
 		vida = 10;
 		noAtaque = false;
+		Heroi.animation ["HeroiCorrendo"].speed = 2F;
+		Heroi.animation ["HeroiParado"].speed = 2F;
+		Heroi.animation ["HeroiAtacando1"].speed = 2F;
 	}
 	
 	// Update is called once per frame
@@ -26,35 +31,41 @@ public class HeroiScript : MonoBehaviour {
 
 	void Controles()
 	{
-		if (!GameObject.Find ("Tahon").animation.IsPlaying ("HeroiAtacando1")) {
+		if (!Heroi.animation.IsPlaying ("HeroiAtacando1")) {
 						if (Input.GetKey (KeyCode.UpArrow) || Input.GetKey (KeyCode.W)) {
-								GameObject.Find ("Tahon").animation.Play ("HeroiCorrendo");
+								Heroi.animation.Play ("HeroiCorrendo");
 								transform.Translate (0, 0, velocidadePercurso * Time.deltaTime);
 						}
 						if (Input.GetKeyUp (KeyCode.UpArrow) || Input.GetKeyUp (KeyCode.W)) {
 								;
-								GameObject.Find ("Tahon").animation.Stop ("HeroiCorrendo");
-								GameObject.Find ("Tahon").animation.Play ("HeroiParado");
+								Heroi.animation.Stop ("HeroiCorrendo");
+								Heroi.animation.Play ("HeroiParado");
 								transform.Translate (0, 0, velocidadePercurso * Time.deltaTime);
 						}
 		
 						if (Input.GetKey (KeyCode.DownArrow) || Input.GetKey (KeyCode.S)) {
-								//GameObject.Find ("mario").animation.Play ("Andando");
-								//transform.Translate (0 , 0, velocidadePercurso * Time.deltaTime);
+							Heroi.animation.Play ("HeroiCorrendo");
+							transform.Translate (0, 0, -velocidadePercurso * Time.deltaTime);
 						}
 		
 						if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) {
 								if (!Input.GetKey (KeyCode.UpArrow) && !Input.GetKey (KeyCode.W))
-										GameObject.Find ("Tahon").animation.Play ("HeroiParado");
+										Heroi.animation.Play ("HeroiParado");
 
 								transform.Rotate (0, velocidadeRotacao * Time.deltaTime, 0);
 						}
 		
 						if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) {
 								if (!Input.GetKey (KeyCode.UpArrow) && !Input.GetKey (KeyCode.W))
-										GameObject.Find ("Tahon").animation.Play ("HeroiParado");
+										Heroi.animation.Play ("HeroiParado");
 
 								transform.Rotate (0, -velocidadeRotacao * Time.deltaTime, 0);
+						}
+
+						if (Input.GetKeyUp (KeyCode.DownArrow) || Input.GetKeyUp (KeyCode.S)) {
+							Heroi.animation.Stop ("HeroiCorrendo");
+							Heroi.animation.Play ("HeroiParado");
+							transform.Translate (0, 0, -velocidadePercurso * Time.deltaTime);
 						}
 		}
 
@@ -64,15 +75,18 @@ public class HeroiScript : MonoBehaviour {
 			GameObject.Find("Tahon").animation.Play("HeroiAtacando1");
 			tempoAtaque = Time.time;
 			//tempoAtaque+= GameObject.Find("Tahon").animation["HeroiAtacando1"].time;
-			tempoAtaque+=1.5F;
+			tempoAtaque+=0.7F;
 			controleGolpe = false;
 			noAtaque = true;
 		}
 
 		if (Time.time >= tempoAtaque) {
+			if(noAtaque)
+				Heroi.animation.Play ("HeroiParado");
 			noAtaque = false;
+
 		}
-	
+
 	}
 
 
@@ -94,28 +108,23 @@ public class HeroiScript : MonoBehaviour {
 	}
 
 	void OnTriggerStay (Collider other) {
-		//Debug.Log ("na colisao");
-		//Debug.Log ("controleGolpe " + controleGolpe);
-		//Debug.Log ("noAtaque " + noAtaque);
-
-
 			if (other.tag == "Inimigo1" && !controleGolpe && noAtaque) {
-						Debug.Log ("pontuou!!!");
+						//Debug.Log ("pontuou!!!");
 						other.GetComponent<Inimigo1Script> ().RecebeDano (1);
 						controleGolpe = true;
 				}
 
 			if (other.tag == "Chefe" && !controleGolpe && noAtaque) {
-				Debug.Log ("pontuou!!!");
+				//Debug.Log ("pontuou!!!");
 				other.GetComponent<ChefeScript>().RecebeDano(1);
 				controleGolpe = true;
-
 		}
 	}
 
 
 	public void RecebeDano(int quantidade)
 	{
+		vidaTexto.text = string.Concat ("VIDA ", vida);
 		vida -= quantidade;
 		if(vida <=0)
 		{

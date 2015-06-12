@@ -1,0 +1,646 @@
+diff --git a/Assembly-CSharp-vs.csproj b/Assembly-CSharp-vs.csproj
+index 914cdcf..12d0513 100644
+--- a/Assembly-CSharp-vs.csproj
++++ b/Assembly-CSharp-vs.csproj
+@@ -46,8 +46,14 @@
+ 	</Reference>
+   </ItemGroup>
+   <ItemGroup>
++     <Compile Include="Assets\Apresentacaop1.cs" />
++     <Compile Include="Assets\Apresentacaop2.cs" />
+      <Compile Include="Assets\ChefeScript.cs" />
+      <Compile Include="Assets\CongratulationsScript.cs" />
++     <Compile Include="Assets\Credits.cs" />
++     <Compile Include="Assets\HIst2.cs" />
++     <Compile Include="Assets\Hist1.cs" />
++     <Compile Include="Assets\Paragens2.cs" />
+      <Compile Include="Assets\Scripts\HeroiControle.cs" />
+      <Compile Include="Assets\Scripts\HeroiScript.cs" />
+      <Compile Include="Assets\Scripts\Inimigo1Script.cs" />
+@@ -76,7 +82,7 @@
+      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
+      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularDisplacement.shader" />
+  <Reference Include="Assembly-UnityScript-firstpass">
+- <HintPath>C:/Users/Leo/Downloads/Yangtsu Ken1.3/Yangtsu Ken1.3/Yangtsu Ken/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
++ <HintPath>C:/Users/Leo/Downloads/Yangtsu Ken1.9/Yangtsu Ken/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.UI">
+  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll</HintPath>
+diff --git a/Assembly-CSharp.csproj b/Assembly-CSharp.csproj
+index 4125964..d65457c 100644
+--- a/Assembly-CSharp.csproj
++++ b/Assembly-CSharp.csproj
+@@ -46,8 +46,14 @@
+ 	</Reference>
+   </ItemGroup>
+   <ItemGroup>
++     <Compile Include="Assets\Apresentacaop1.cs" />
++     <Compile Include="Assets\Apresentacaop2.cs" />
+      <Compile Include="Assets\ChefeScript.cs" />
+      <Compile Include="Assets\CongratulationsScript.cs" />
++     <Compile Include="Assets\Credits.cs" />
++     <Compile Include="Assets\HIst2.cs" />
++     <Compile Include="Assets\Hist1.cs" />
++     <Compile Include="Assets\Paragens2.cs" />
+      <Compile Include="Assets\Scripts\HeroiControle.cs" />
+      <Compile Include="Assets\Scripts\HeroiScript.cs" />
+      <Compile Include="Assets\Scripts\Inimigo1Script.cs" />
+diff --git a/Assembly-UnityScript-vs.unityproj b/Assembly-UnityScript-vs.unityproj
+index acee6bb..4c54be9 100644
+--- a/Assembly-UnityScript-vs.unityproj
++++ b/Assembly-UnityScript-vs.unityproj
+@@ -80,7 +80,7 @@
+      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
+      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularDisplacement.shader" />
+  <Reference Include="Assembly-UnityScript-firstpass">
+- <HintPath>C:/Users/Leo/Downloads/Yangtsu Ken1.3/Yangtsu Ken1.3/Yangtsu Ken/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
++ <HintPath>C:/Users/Leo/Downloads/Yangtsu Ken1.9/Yangtsu Ken/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+  </Reference>
+  <Reference Include="UnityEngine.UI">
+  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll</HintPath>
+diff --git a/Assets/ChefeScript.cs b/Assets/ChefeScript.cs
+index ca937c5..20d2238 100644
+--- a/Assets/ChefeScript.cs
++++ b/Assets/ChefeScript.cs
+@@ -70,13 +70,13 @@ void Persegue()
+ 	}
+ 	
+ 	void OnTriggerStay (Collider other) {
+-		Debug.Log ("na colisao");
+-		Debug.Log ("controleGolpe " + controleGolpe);
+-		Debug.Log ("noAtaque " + noAtaque);
++		//Debug.Log ("na colisao");
++		//Debug.Log ("controleGolpe " + controleGolpe);
++		//Debug.Log ("noAtaque " + noAtaque);
+ 		
+ 		
+ 		if (other.tag == "Heroi" && !controleGolpe && noAtaque) {
+-			Debug.Log ("pontuou!!!");
++			//Debug.Log ("pontuou!!!");
+ 			other.GetComponent<HeroiScript>().RecebeDano(1);
+ 			controleGolpe = true;
+ 		}
+diff --git a/Assets/CongratulationsScript.cs b/Assets/CongratulationsScript.cs
+index f243045..b2da147 100644
+--- a/Assets/CongratulationsScript.cs
++++ b/Assets/CongratulationsScript.cs
+@@ -12,7 +12,7 @@ public class CongratulationsScript : MonoBehaviour {
+ 	void Update () {
+ 		if(Input.GetKey(KeyCode.KeypadEnter)||Input.GetKey(KeyCode.Return))
+ 		{
+-			Application.LoadLevel("Titulo");
++			Application.LoadLevel("Agradecimentos");
+ 		}
+ 	
+ 	}
+diff --git a/Assets/Modificados/Inimigo1V2.prefab b/Assets/Modificados/Inimigo1V2.prefab
+index 12cbcc5..c13263b 100644
+Binary files a/Assets/Modificados/Inimigo1V2.prefab and b/Assets/Modificados/Inimigo1V2.prefab differ
+diff --git a/Assets/Objetos/Casa/Materials/TexturaTelhado.mat b/Assets/Objetos/Casa/Materials/TexturaTelhado.mat
+index 1125a6b..d9182d9 100644
+Binary files a/Assets/Objetos/Casa/Materials/TexturaTelhado.mat and b/Assets/Objetos/Casa/Materials/TexturaTelhado.mat differ
+diff --git a/Assets/Objetos/Casa/Materials/lambert1.mat b/Assets/Objetos/Casa/Materials/lambert1.mat
+index 9059c37..04aa41f 100644
+Binary files a/Assets/Objetos/Casa/Materials/lambert1.mat and b/Assets/Objetos/Casa/Materials/lambert1.mat differ
+diff --git a/Assets/Objetos/New Terrain.asset b/Assets/Objetos/New Terrain.asset
+index 62ced2d..edd505d 100644
+Binary files a/Assets/Objetos/New Terrain.asset and b/Assets/Objetos/New Terrain.asset differ
+diff --git a/Assets/Personagens/Personagens sem Textura/TahonMoves.fbx.meta b/Assets/Personagens/Personagens sem Textura/TahonMoves.fbx.meta
+index 2c9af2d..6bdac65 100644
+--- a/Assets/Personagens/Personagens sem Textura/TahonMoves.fbx.meta	
++++ b/Assets/Personagens/Personagens sem Textura/TahonMoves.fbx.meta	
+@@ -480,7 +480,7 @@ ModelImporter:
+       name: HeroiAtacando1
+       takeName: Armature|ArmatureAction
+       firstFrame: 202
+-      lastFrame: 248
++      lastFrame: 230
+       wrapMode: 0
+       orientationOffsetY: 0
+       level: 0
+diff --git a/Assets/Scenes/Fase1.unity b/Assets/Scenes/Fase1.unity
+index 3d1a142..cd24987 100644
+Binary files a/Assets/Scenes/Fase1.unity and b/Assets/Scenes/Fase1.unity differ
+diff --git a/Assets/Scenes/GameOver.unity b/Assets/Scenes/GameOver.unity
+index 00d7135..3de7e66 100644
+Binary files a/Assets/Scenes/GameOver.unity and b/Assets/Scenes/GameOver.unity differ
+diff --git a/Assets/Scenes/Paragens.unity b/Assets/Scenes/Paragens.unity
+index 810e70f..40b92f6 100644
+Binary files a/Assets/Scenes/Paragens.unity and b/Assets/Scenes/Paragens.unity differ
+diff --git a/Assets/Scenes/Titulo.unity b/Assets/Scenes/Titulo.unity
+index 8a9f0d8..0d761b2 100644
+Binary files a/Assets/Scenes/Titulo.unity and b/Assets/Scenes/Titulo.unity differ
+diff --git a/Assets/Scripts/HeroiScript.cs b/Assets/Scripts/HeroiScript.cs
+index c0e776a..9de3378 100644
+--- a/Assets/Scripts/HeroiScript.cs
++++ b/Assets/Scripts/HeroiScript.cs
+@@ -8,15 +8,20 @@ public class HeroiScript : MonoBehaviour {
+ 	public int vida;
+ 	float tempoAtaque;
+ 	bool noAtaque;
++	public GameObject Heroi;
++	public GUIText vidaTexto;
+ 	// Use this for initialization
+ 	void Start () {
+ 		controleGolpe = false;
+-		velocidadePercurso = 40;
++		velocidadePercurso = 60;
+ 		velocidadeRotacao = 60;
+ 		controlePulo = true;
+ 		forcaPulo = 10;
+ 		vida = 10;
+ 		noAtaque = false;
++		Heroi.animation ["HeroiCorrendo"].speed = 2F;
++		Heroi.animation ["HeroiParado"].speed = 2F;
++		Heroi.animation ["HeroiAtacando1"].speed = 2F;
+ 	}
+ 	
+ 	// Update is called once per frame
+@@ -26,36 +31,42 @@ public class HeroiScript : MonoBehaviour {
+ 
+ 	void Controles()
+ 	{
+-		if (!GameObject.Find ("Tahon").animation.IsPlaying ("HeroiAtacando1")) {
++		if (!Heroi.animation.IsPlaying ("HeroiAtacando1")) {
+ 						if (Input.GetKey (KeyCode.UpArrow) || Input.GetKey (KeyCode.W)) {
+-								GameObject.Find ("Tahon").animation.Play ("HeroiCorrendo");
++								Heroi.animation.Play ("HeroiCorrendo");
+ 								transform.Translate (0, 0, velocidadePercurso * Time.deltaTime);
+ 						}
+ 						if (Input.GetKeyUp (KeyCode.UpArrow) || Input.GetKeyUp (KeyCode.W)) {
+ 								;
+-								GameObject.Find ("Tahon").animation.Stop ("HeroiCorrendo");
+-								GameObject.Find ("Tahon").animation.Play ("HeroiParado");
++								Heroi.animation.Stop ("HeroiCorrendo");
++								Heroi.animation.Play ("HeroiParado");
+ 								transform.Translate (0, 0, velocidadePercurso * Time.deltaTime);
+ 						}
+ 		
+ 						if (Input.GetKey (KeyCode.DownArrow) || Input.GetKey (KeyCode.S)) {
+-								//GameObject.Find ("mario").animation.Play ("Andando");
+-								//transform.Translate (0 , 0, velocidadePercurso * Time.deltaTime);
++							Heroi.animation.Play ("HeroiCorrendo");
++							transform.Translate (0, 0, -velocidadePercurso * Time.deltaTime);
+ 						}
+ 		
+ 						if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) {
+ 								if (!Input.GetKey (KeyCode.UpArrow) && !Input.GetKey (KeyCode.W))
+-										GameObject.Find ("Tahon").animation.Play ("HeroiParado");
++										Heroi.animation.Play ("HeroiParado");
+ 
+ 								transform.Rotate (0, velocidadeRotacao * Time.deltaTime, 0);
+ 						}
+ 		
+ 						if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) {
+ 								if (!Input.GetKey (KeyCode.UpArrow) && !Input.GetKey (KeyCode.W))
+-										GameObject.Find ("Tahon").animation.Play ("HeroiParado");
++										Heroi.animation.Play ("HeroiParado");
+ 
+ 								transform.Rotate (0, -velocidadeRotacao * Time.deltaTime, 0);
+ 						}
++
++						if (Input.GetKeyUp (KeyCode.DownArrow) || Input.GetKeyUp (KeyCode.S)) {
++							Heroi.animation.Stop ("HeroiCorrendo");
++							Heroi.animation.Play ("HeroiParado");
++							transform.Translate (0, 0, -velocidadePercurso * Time.deltaTime);
++						}
+ 		}
+ 
+ 		///ATAQUE...
+@@ -64,15 +75,18 @@ void Controles()
+ 			GameObject.Find("Tahon").animation.Play("HeroiAtacando1");
+ 			tempoAtaque = Time.time;
+ 			//tempoAtaque+= GameObject.Find("Tahon").animation["HeroiAtacando1"].time;
+-			tempoAtaque+=1.5F;
++			tempoAtaque+=0.7F;
+ 			controleGolpe = false;
+ 			noAtaque = true;
+ 		}
+ 
+ 		if (Time.time >= tempoAtaque) {
++			if(noAtaque)
++				Heroi.animation.Play ("HeroiParado");
+ 			noAtaque = false;
++
+ 		}
+-	
++
+ 	}
+ 
+ 
+@@ -94,28 +108,23 @@ void ControlesVelho()
+ 	}
+ 
+ 	void OnTriggerStay (Collider other) {
+-		//Debug.Log ("na colisao");
+-		//Debug.Log ("controleGolpe " + controleGolpe);
+-		//Debug.Log ("noAtaque " + noAtaque);
+-
+-
+ 			if (other.tag == "Inimigo1" && !controleGolpe && noAtaque) {
+-						Debug.Log ("pontuou!!!");
++						//Debug.Log ("pontuou!!!");
+ 						other.GetComponent<Inimigo1Script> ().RecebeDano (1);
+ 						controleGolpe = true;
+ 				}
+ 
+ 			if (other.tag == "Chefe" && !controleGolpe && noAtaque) {
+-				Debug.Log ("pontuou!!!");
++				//Debug.Log ("pontuou!!!");
+ 				other.GetComponent<ChefeScript>().RecebeDano(1);
+ 				controleGolpe = true;
+-
+ 		}
+ 	}
+ 
+ 
+ 	public void RecebeDano(int quantidade)
+ 	{
++		vidaTexto.text = string.Concat ("VIDA ", vida);
+ 		vida -= quantidade;
+ 		if(vida <=0)
+ 		{
+diff --git a/Assets/Scripts/Inimigo1Script.cs b/Assets/Scripts/Inimigo1Script.cs
+index 0a2a9c6..d951617 100644
+--- a/Assets/Scripts/Inimigo1Script.cs
++++ b/Assets/Scripts/Inimigo1Script.cs
+@@ -9,6 +9,7 @@ public class Inimigo1Script : MonoBehaviour {
+ 	private int vida;
+ 	private bool controleGolpe, noAtaque;
+ 	private float tempoAtaque;
++	public GameObject Inimigo;
+ 	// Use this for initialization
+ 	void Start () {
+ 		Velocidade = 20;
+@@ -34,7 +35,7 @@ void Persegue()
+ 			transform.LookAt (GameObject.Find("Heroi").transform.position);
+ 			transform.Translate (0, 0, Velocidade * Time.deltaTime);
+ 			//GameObject.Find("Enemy").animation.Play("InimigoCorrendo");
+-			this.transform.FindChild("Enemy").gameObject.animation.Play("InimigoCorrendo");
++			Inimigo.animation.Play("InimigoCorrendo");
+ 		}
+ 		
+ 		if (this.gameObject.transform.position.y <= -100) {
+@@ -43,13 +44,13 @@ void Persegue()
+ 
+ 		if(distancia >= 50)
+ 		{
+-			this.transform.FindChild("Enemy").gameObject.animation.Play("InimigoParado");
++			Inimigo.animation.Play("InimigoParado");
+ 		}
+ 
+ 		///ATAQUE
+ 		if(distancia <= 11 && !noAtaque)
+ 		{
+-			this.transform.FindChild("Enemy").gameObject.animation.Play("InimigoAtacando1");
++			Inimigo.animation.Play("InimigoAtacando1");
+ 			tempoAtaque = Time.time;
+ 			//tempoAtaque+= GameObject.Find("Tahon").animation["HeroiAtacando1"].time;
+ 			tempoAtaque+=1.5F;
+@@ -60,20 +61,17 @@ void Persegue()
+ 			noAtaque = false;
+ 		}
+ 
+-		if (!this.transform.FindChild("Enemy").gameObject.animation.IsPlaying ("InimigoAtacando1")) {
++		if (!Inimigo.animation.IsPlaying ("InimigoAtacando1")) {
+ 			controleGolpe = false;	
+ 			noAtaque = false;
+ 		}
+ 	}
+ 
+ 	void OnTriggerStay (Collider other) {
+-		Debug.Log ("na colisao");
+-		Debug.Log ("controleGolpe " + controleGolpe);
+-		Debug.Log ("noAtaque " + noAtaque);
+ 		
+ 		
+ 		if (other.tag == "Heroi" && !controleGolpe && noAtaque) {
+-			Debug.Log ("pontuou!!!");
++			//Debug.Log ("pontuou!!!");
+ 			other.GetComponent<HeroiScript>().RecebeDano(1);
+ 			controleGolpe = true;
+ 		}
+diff --git a/Assets/Standard Assets/Particles/Sources/Materials/Fire Add.mat b/Assets/Standard Assets/Particles/Sources/Materials/Fire Add.mat
+index 4190c83..eff9c17 100644
+Binary files a/Assets/Standard Assets/Particles/Sources/Materials/Fire Add.mat and b/Assets/Standard Assets/Particles/Sources/Materials/Fire Add.mat differ
+diff --git a/Library/CurrentLayout.dwlt b/Library/CurrentLayout.dwlt
+index f59aa82..59a1cbe 100644
+Binary files a/Library/CurrentLayout.dwlt and b/Library/CurrentLayout.dwlt differ
+diff --git a/Library/EditorUserBuildSettings.asset b/Library/EditorUserBuildSettings.asset
+index 68d5294..c9f8f1b 100644
+Binary files a/Library/EditorUserBuildSettings.asset and b/Library/EditorUserBuildSettings.asset differ
+diff --git a/Library/InspectorExpandedItems.asset b/Library/InspectorExpandedItems.asset
+index 702ced3..1287e2b 100644
+Binary files a/Library/InspectorExpandedItems.asset and b/Library/InspectorExpandedItems.asset differ
+diff --git a/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll b/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll
+index 0cee12e..597d928 100644
+Binary files a/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll and b/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll differ
+diff --git a/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll.mdb b/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll.mdb
+index e6d12fe..3a14f44 100644
+Binary files a/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll.mdb and b/Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll.mdb differ
+diff --git a/Library/ScriptAssemblies/Assembly-CSharp.dll b/Library/ScriptAssemblies/Assembly-CSharp.dll
+index 9560c15..f95144e 100644
+Binary files a/Library/ScriptAssemblies/Assembly-CSharp.dll and b/Library/ScriptAssemblies/Assembly-CSharp.dll differ
+diff --git a/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb b/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+index 3d9f050..9d82306 100644
+Binary files a/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb and b/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb differ
+diff --git a/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll b/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll
+index 1529dc1..202912f 100644
+Binary files a/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll and b/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll differ
+diff --git a/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll.mdb b/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll.mdb
+index c441139..3d3f3e6 100644
+Binary files a/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll.mdb and b/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll.mdb differ
+diff --git a/Library/ScriptAssemblies/Assembly-UnityScript.dll b/Library/ScriptAssemblies/Assembly-UnityScript.dll
+index bbd8cd8..e887551 100644
+Binary files a/Library/ScriptAssemblies/Assembly-UnityScript.dll and b/Library/ScriptAssemblies/Assembly-UnityScript.dll differ
+diff --git a/Library/ScriptAssemblies/Assembly-UnityScript.dll.mdb b/Library/ScriptAssemblies/Assembly-UnityScript.dll.mdb
+index 8af1f49..d0d302f 100644
+Binary files a/Library/ScriptAssemblies/Assembly-UnityScript.dll.mdb and b/Library/ScriptAssemblies/Assembly-UnityScript.dll.mdb differ
+diff --git a/Library/assetDatabase3 b/Library/assetDatabase3
+index ac77eac..2df4f17 100644
+Binary files a/Library/assetDatabase3 and b/Library/assetDatabase3 differ
+diff --git a/Library/expandedItems b/Library/expandedItems
+index b750a41..052e846 100644
+Binary files a/Library/expandedItems and b/Library/expandedItems differ
+diff --git a/Library/guidmapper b/Library/guidmapper
+index 2fc46c5..a7fce3a 100644
+Binary files a/Library/guidmapper and b/Library/guidmapper differ
+diff --git a/Library/metadata/00/00000000000000009000000000000000 b/Library/metadata/00/00000000000000009000000000000000
+index 12f0c82..323baf6 100644
+Binary files a/Library/metadata/00/00000000000000009000000000000000 and b/Library/metadata/00/00000000000000009000000000000000 differ
+diff --git a/Library/metadata/00/0000000000000000b000000000000000 b/Library/metadata/00/0000000000000000b000000000000000
+index 62317e0..23808a8 100644
+Binary files a/Library/metadata/00/0000000000000000b000000000000000 and b/Library/metadata/00/0000000000000000b000000000000000 differ
+diff --git a/Library/metadata/19/19a36bb6b2434404ba6cca90f210e32a b/Library/metadata/19/19a36bb6b2434404ba6cca90f210e32a
+index 0decf53..51afaad 100644
+Binary files a/Library/metadata/19/19a36bb6b2434404ba6cca90f210e32a and b/Library/metadata/19/19a36bb6b2434404ba6cca90f210e32a differ
+diff --git a/Library/metadata/3b/3b56f8b03cc95114a9e2ab23631e4417 b/Library/metadata/3b/3b56f8b03cc95114a9e2ab23631e4417
+index 82d751a..ef14651 100644
+Binary files a/Library/metadata/3b/3b56f8b03cc95114a9e2ab23631e4417 and b/Library/metadata/3b/3b56f8b03cc95114a9e2ab23631e4417 differ
+diff --git a/Library/metadata/45/45f01c96d3421f4479cd1bae9059fe0b b/Library/metadata/45/45f01c96d3421f4479cd1bae9059fe0b
+index 4864b4f..b4f3d26 100644
+Binary files a/Library/metadata/45/45f01c96d3421f4479cd1bae9059fe0b and b/Library/metadata/45/45f01c96d3421f4479cd1bae9059fe0b differ
+diff --git a/Library/metadata/4e/4e391ba55ce455a4390d6dea04fbb50a b/Library/metadata/4e/4e391ba55ce455a4390d6dea04fbb50a
+index 388cf6d..7ea9b73 100644
+Binary files a/Library/metadata/4e/4e391ba55ce455a4390d6dea04fbb50a and b/Library/metadata/4e/4e391ba55ce455a4390d6dea04fbb50a differ
+diff --git a/Library/metadata/55/5500938b3a6481744a73f386aa1ba676 b/Library/metadata/55/5500938b3a6481744a73f386aa1ba676
+index 4a1e6c0..a3ea594 100644
+Binary files a/Library/metadata/55/5500938b3a6481744a73f386aa1ba676 and b/Library/metadata/55/5500938b3a6481744a73f386aa1ba676 differ
+diff --git a/Library/metadata/63/6324bd021f43cf94db0b9b72839fd3d6 b/Library/metadata/63/6324bd021f43cf94db0b9b72839fd3d6
+index 2aeb6ab..f24209a 100644
+Binary files a/Library/metadata/63/6324bd021f43cf94db0b9b72839fd3d6 and b/Library/metadata/63/6324bd021f43cf94db0b9b72839fd3d6 differ
+diff --git a/Library/metadata/7d/7d7c4cc45278a4d4a835be58a6a2508f b/Library/metadata/7d/7d7c4cc45278a4d4a835be58a6a2508f
+index dec70f3..85d7abd 100644
+Binary files a/Library/metadata/7d/7d7c4cc45278a4d4a835be58a6a2508f and b/Library/metadata/7d/7d7c4cc45278a4d4a835be58a6a2508f differ
+diff --git a/Library/metadata/8f/8f74bb5932a6dcc4092aff49825de876 b/Library/metadata/8f/8f74bb5932a6dcc4092aff49825de876
+index 61b6f8c..e5d710d 100644
+Binary files a/Library/metadata/8f/8f74bb5932a6dcc4092aff49825de876 and b/Library/metadata/8f/8f74bb5932a6dcc4092aff49825de876 differ
+diff --git a/Library/metadata/a5/a5d7757a5f6222d4ab900fb785cc7110 b/Library/metadata/a5/a5d7757a5f6222d4ab900fb785cc7110
+index e979fbc..627c914 100644
+Binary files a/Library/metadata/a5/a5d7757a5f6222d4ab900fb785cc7110 and b/Library/metadata/a5/a5d7757a5f6222d4ab900fb785cc7110 differ
+diff --git a/Library/metadata/ac/ace49589496532346b16ff98f04ea05a b/Library/metadata/ac/ace49589496532346b16ff98f04ea05a
+index cb7e8b8..0d64c41 100644
+Binary files a/Library/metadata/ac/ace49589496532346b16ff98f04ea05a and b/Library/metadata/ac/ace49589496532346b16ff98f04ea05a differ
+diff --git a/Library/metadata/b1/b1619b1b01fb43e419deb728ab55054a b/Library/metadata/b1/b1619b1b01fb43e419deb728ab55054a
+index 70ac662..30994cf 100644
+Binary files a/Library/metadata/b1/b1619b1b01fb43e419deb728ab55054a and b/Library/metadata/b1/b1619b1b01fb43e419deb728ab55054a differ
+diff --git a/Library/metadata/b7/b77e8e3eabb416d46900544b7866f028 b/Library/metadata/b7/b77e8e3eabb416d46900544b7866f028
+index ce020e5..0d01028 100644
+Binary files a/Library/metadata/b7/b77e8e3eabb416d46900544b7866f028 and b/Library/metadata/b7/b77e8e3eabb416d46900544b7866f028 differ
+diff --git a/Library/metadata/d4/d4ce6494be2b04f45ac188caf5d49f0a b/Library/metadata/d4/d4ce6494be2b04f45ac188caf5d49f0a
+index 156bf10..6d1bcfe 100644
+Binary files a/Library/metadata/d4/d4ce6494be2b04f45ac188caf5d49f0a and b/Library/metadata/d4/d4ce6494be2b04f45ac188caf5d49f0a differ
+diff --git a/Library/metadata/de/ded4d459cc30aea4aaa69710a8b8c317 b/Library/metadata/de/ded4d459cc30aea4aaa69710a8b8c317
+index e6a20e8..49ae6d2 100644
+Binary files a/Library/metadata/de/ded4d459cc30aea4aaa69710a8b8c317 and b/Library/metadata/de/ded4d459cc30aea4aaa69710a8b8c317 differ
+diff --git a/Library/metadata/e3/e32b63b928cf5fc42a3a5294e29654ac b/Library/metadata/e3/e32b63b928cf5fc42a3a5294e29654ac
+index 151ad55..c01aa72 100644
+Binary files a/Library/metadata/e3/e32b63b928cf5fc42a3a5294e29654ac and b/Library/metadata/e3/e32b63b928cf5fc42a3a5294e29654ac differ
+diff --git a/Library/metadata/e5/e5531768342fd464d80b51030c62fe2c b/Library/metadata/e5/e5531768342fd464d80b51030c62fe2c
+index 863f981..578f20d 100644
+Binary files a/Library/metadata/e5/e5531768342fd464d80b51030c62fe2c and b/Library/metadata/e5/e5531768342fd464d80b51030c62fe2c differ
+diff --git a/Library/metadata/e6/e667992b28845df99060a8f876d1d11b b/Library/metadata/e6/e667992b28845df99060a8f876d1d11b
+index 9dcffe2..f96f7fc 100644
+Binary files a/Library/metadata/e6/e667992b28845df99060a8f876d1d11b and b/Library/metadata/e6/e667992b28845df99060a8f876d1d11b differ
+diff --git a/Library/metadata/ed/ed2dcbb4d39bbda489c2a9da75b0407a b/Library/metadata/ed/ed2dcbb4d39bbda489c2a9da75b0407a
+index 354cdb7..2ab448b 100644
+Binary files a/Library/metadata/ed/ed2dcbb4d39bbda489c2a9da75b0407a and b/Library/metadata/ed/ed2dcbb4d39bbda489c2a9da75b0407a differ
+diff --git a/Library/shadercompiler-1.log b/Library/shadercompiler-1.log
+index b3449ef..5d9cd2a 100644
+--- a/Library/shadercompiler-1.log
++++ b/Library/shadercompiler-1.log
+@@ -1,153 +1,3 @@
+ Base path: C:/Program Files (x86)/Unity/Editor/Data
+-Pipe name: \\.\pipe\UnityShaderCompiler-1-8624
++Pipe name: \\.\pipe\UnityShaderCompiler-1-7088
+ Cmd: getPlatforms
+-Cmd: preprocess
+-  insize=447 outsize=447 ok=1
+-Cmd: preprocess
+-  insize=1584 outsize=2244 ok=1
+-Cmd: compileSnippet
+-  api=4 type=0 insize=8014 outsize=1298 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+-Cmd: compileSnippet
+-  api=4 type=1 insize=8014 outsize=2704 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+-Cmd: compileSnippet
+-  api=4 type=2 insize=8014 outsize=7815 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+-Cmd: compileSnippet
+-  api=4 type=3 insize=8014 outsize=5515 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+-Cmd: compileSnippet
+-  api=4 type=0 insize=5700 outsize=1298 kw=POINT ok=1
+-Cmd: compileSnippet
+-  api=4 type=1 insize=5700 outsize=3005 kw=POINT ok=1
+-Cmd: compileSnippet
+-  api=4 type=2 insize=5700 outsize=7815 kw=POINT ok=1
+-Cmd: compileSnippet
+-  api=4 type=3 insize=5700 outsize=5166 kw=POINT ok=1
+-Cmd: compileSnippet
+-  api=4 type=0 insize=5510 outsize=1298 kw= ok=1
+-Cmd: compileSnippet
+-  api=4 type=1 insize=5510 outsize=1575 kw= ok=1
+-Cmd: compileSnippet
+-  api=4 type=2 insize=5510 outsize=7815 kw= ok=1
+-Cmd: compileSnippet
+-  api=4 type=3 insize=5510 outsize=4362 kw= ok=1
+-Cmd: compileSnippet
+-  api=4 type=0 insize=7515 outsize=1298 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+-Cmd: compileSnippet
+-  api=4 type=1 insize=7515 outsize=1534 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+-Cmd: compileSnippet
+-  api=4 type=2 insize=7515 outsize=7815 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+-Cmd: compileSnippet
+-  api=4 type=3 insize=7515 outsize=4207 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+-Cmd: compileSnippet
+-  api=4 type=0 insize=4813 outsize=1298 kw=SHADOWS_DEPTH ok=1
+-Cmd: compileSnippet
+-  api=4 type=1 insize=4813 outsize=445 kw=SHADOWS_DEPTH ok=1
+-Cmd: compileSnippet
+-  api=4 type=2 insize=4813 outsize=7815 kw=SHADOWS_DEPTH ok=1
+-Cmd: compileSnippet
+-  api=4 type=3 insize=4813 outsize=2720 kw=SHADOWS_DEPTH ok=1
+-Cmd: preprocess
+-  insize=818 outsize=818 ok=1
+-Cmd: preprocess
+-  insize=1423 outsize=2191 ok=1
+-Cmd: compileSnippet
+-  api=4 type=0 insize=8182 outsize=1298 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+-Cmd: compileSnippet
+-  api=4 type=1 insize=8182 outsize=2704 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+-Cmd: compileSnippet
+-  api=4 type=2 insize=8182 outsize=7750 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+-Cmd: compileSnippet
+-  api=4 type=3 insize=8182 outsize=6482 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+-Cmd: compileSnippet
+-  api=4 type=0 insize=5868 outsize=1298 kw=POINT ok=1
+-Cmd: compileSnippet
+-  api=4 type=1 insize=5868 outsize=3005 kw=POINT ok=1
+-Cmd: compileSnippet
+-  api=4 type=2 insize=5868 outsize=7750 kw=POINT ok=1
+-Cmd: compileSnippet
+-  api=4 type=3 insize=5868 outsize=6133 kw=POINT ok=1
+-Cmd: compileSnippet
+-  api=4 type=0 insize=5678 outsize=1298 kw= ok=1
+-Cmd: compileSnippet
+-  api=4 type=1 insize=5678 outsize=1575 kw= ok=1
+-Cmd: compileSnippet
+-  api=4 type=2 insize=5678 outsize=7750 kw= ok=1
+-Cmd: compileSnippet
+-  api=4 type=3 insize=5678 outsize=5328 kw= ok=1
+-Cmd: compileSnippet
+-  api=4 type=0 insize=7683 outsize=1298 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+-Cmd: compileSnippet
+-  api=4 type=1 insize=7683 outsize=1534 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+-Cmd: compileSnippet
+-  api=4 type=2 insize=7683 outsize=7750 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+-Cmd: compileSnippet
+-  api=4 type=3 insize=7683 outsize=5174 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
+-Cmd: compileSnippet
+-  api=4 type=0 insize=4981 outsize=1298 kw=SHADOWS_DEPTH ok=1
+-Cmd: compileSnippet
+-  api=4 type=1 insize=4981 outsize=445 kw=SHADOWS_DEPTH ok=1
+-Cmd: compileSnippet
+-  api=4 type=2 insize=4981 outsize=7750 kw=SHADOWS_DEPTH ok=1
+-Cmd: compileSnippet
+-  api=4 type=3 insize=4981 outsize=3248 kw=SHADOWS_DEPTH ok=1
+-Cmd: preprocess
+-  insize=1048 outsize=887 ok=1
+-Cmd: compileSnippet
+-  api=4 type=0 insize=4808 outsize=2607 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+-Cmd: compileSnippet
+-  api=4 type=1 insize=4808 outsize=1453 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+-Cmd: compileSnippet
+-  api=4 type=0 insize=2847 outsize=2875 kw=POINT ok=1
+-Cmd: compileSnippet
+-  api=4 type=1 insize=2847 outsize=1810 kw=POINT ok=1
+-Cmd: preprocess
+-  insize=472 outsize=472 ok=1
+-Cmd: preprocess
+-  insize=835 outsize=835 ok=1
+-Cmd: preprocess
+-  insize=730 outsize=730 ok=1
+-Cmd: preprocess
+-  insize=608 outsize=608 ok=1
+-Cmd: preprocess
+-  insize=1576 outsize=991 ok=1
+-Cmd: compileSnippet
+-  api=4 type=0 insize=867 outsize=1599 kw= ok=1
+-Cmd: compileSnippet
+-  api=4 type=1 insize=867 outsize=502 kw= ok=1
+-Cmd: preprocess
+-  insize=2970 outsize=1659 ok=1
+-Cmd: compileSnippet
+-  api=4 type=0 insize=1617 outsize=1940 kw= ok=1
+-Cmd: compileSnippet
+-  api=4 type=1 insize=1617 outsize=2070 kw= ok=1
+-Cmd: preprocess
+-  insize=1189 outsize=403 ok=1
+-Cmd: compileSnippet
+-  api=4 type=0 insize=1088 outsize=1583 kw= ok=1
+-Cmd: compileSnippet
+-  api=4 type=1 insize=1088 outsize=1152 kw= ok=1
+-Cmd: preprocess
+-  insize=1153 outsize=392 ok=1
+-Cmd: compileSnippet
+-  api=4 type=0 insize=1063 outsize=1583 kw= ok=1
+-Cmd: compileSnippet
+-  api=4 type=1 insize=1063 outsize=1152 kw= ok=1
+-Cmd: preprocess
+-  insize=1355 outsize=1355 ok=1
+-Cmd: preprocess
+-  insize=316 outsize=316 ok=1
+-Cmd: preprocess
+-  insize=1500 outsize=667 ok=1
+-Cmd: compileSnippet
+-  api=4 type=0 insize=1135 outsize=1461 kw= ok=1
+-Cmd: compileSnippet
+-  api=4 type=1 insize=1135 outsize=1071 kw= ok=1
+-Cmd: preprocess
+-  insize=634 outsize=634 ok=1
+-Cmd: preprocess
+-  insize=963 outsize=963 ok=1
+-Cmd: preprocess
+-  insize=1725 outsize=1007 ok=1
+-Cmd: compileSnippet
+-  api=4 type=0 insize=1020 outsize=1274 kw= ok=1
+-Cmd: compileSnippet
+-  api=4 type=1 insize=1020 outsize=908 kw= ok=1
+diff --git a/ProjectSettings/EditorBuildSettings.asset b/ProjectSettings/EditorBuildSettings.asset
+index 365eb43..4c1e602 100644
+Binary files a/ProjectSettings/EditorBuildSettings.asset and b/ProjectSettings/EditorBuildSettings.asset differ
+diff --git a/ProjectSettings/QualitySettings.asset b/ProjectSettings/QualitySettings.asset
+index fa8f923..9cd45cb 100644
+Binary files a/ProjectSettings/QualitySettings.asset and b/ProjectSettings/QualitySettings.asset differ
+diff --git a/ProjectSettings/TagManager.asset b/ProjectSettings/TagManager.asset
+index 23a37bc..de25320 100644
+Binary files a/ProjectSettings/TagManager.asset and b/ProjectSettings/TagManager.asset differ
+diff --git a/Yangtsu Ken-csharp.sln b/Yangtsu Ken-csharp.sln
+index 93ffc8d..78779da 100644
+--- a/Yangtsu Ken-csharp.sln	
++++ b/Yangtsu Ken-csharp.sln	
+@@ -23,7 +23,7 @@ Global
+ 	GlobalSection(SolutionProperties) = preSolution
+ 		HideSolutionNode = FALSE
+ 	EndGlobalSection
+-																											GlobalSection(MonoDevelopProperties) = preSolution
++																																																											GlobalSection(MonoDevelopProperties) = preSolution
+ 		StartupItem = Assembly-CSharp.csproj
+ 		Policies = $0
+ 		$0.TextStylePolicy = $1
+diff --git a/Yangtsu Ken.sln b/Yangtsu Ken.sln
+index 087f31f..f3e4896 100644
+--- a/Yangtsu Ken.sln	
++++ b/Yangtsu Ken.sln	
+@@ -35,7 +35,7 @@ Global
+ 	GlobalSection(SolutionProperties) = preSolution
+ 		HideSolutionNode = FALSE
+ 	EndGlobalSection
+-																										GlobalSection(MonoDevelopProperties) = preSolution
++																																																										GlobalSection(MonoDevelopProperties) = preSolution
+ 		StartupItem = Assembly-CSharp.csproj
+ 		Policies = $0
+ 		$0.TextStylePolicy = $1
+diff --git a/Yangtsu Ken.userprefs b/Yangtsu Ken.userprefs
+index a44912e..49ead3c 100644
+--- a/Yangtsu Ken.userprefs	
++++ b/Yangtsu Ken.userprefs	
+@@ -1,14 +1,11 @@
+ ﻿<Properties>
+-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\HeroiScript.cs">
++  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
++  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Credits.cs">
+     <Files>
+-      <File FileName="Assets\Scripts\Inimigo1Script.cs" Line="52" Column="84" />
+-      <File FileName="Assets\Scripts\HeroiScript.cs" Line="5" Column="50" />
+-      <File FileName="Assets\ChefeScript.cs" Line="91" Column="35" />
+-      <File FileName="..\DK\DK1.7\Assets\Scripts\opacaScript.cs" Line="1" Column="1" />
+-      <File FileName="Assets\gameOverScript.cs" Line="1" Column="1" />
+-      <File FileName="Assets\TituloScript.cs" Line="16" Column="4" />
+-      <File FileName="Assets\CongratulationsScript.cs" Line="15" Column="33" />
++      <File FileName="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" Line="1" Column="1" />
++      <File FileName="Assets\Scripts\HeroiScript.cs" Line="1" Column="1" />
++      <File FileName="Assets\Apresentacaop1.cs" Line="11" Column="1" />
++      <File FileName="Assets\Credits.cs" Line="1" Column="1" />
+     </Files>
+   </MonoDevelop.Ide.Workbench>
+   <MonoDevelop.Ide.DebuggingService.Breakpoints>

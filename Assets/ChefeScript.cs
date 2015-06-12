@@ -70,13 +70,13 @@ public class ChefeScript : MonoBehaviour {
 	}
 	
 	void OnTriggerStay (Collider other) {
-		Debug.Log ("na colisao");
-		Debug.Log ("controleGolpe " + controleGolpe);
-		Debug.Log ("noAtaque " + noAtaque);
+		//Debug.Log ("na colisao");
+		//Debug.Log ("controleGolpe " + controleGolpe);
+		//Debug.Log ("noAtaque " + noAtaque);
 		
 		
 		if (other.tag == "Heroi" && !controleGolpe && noAtaque) {
-			Debug.Log ("pontuou!!!");
+			//Debug.Log ("pontuou!!!");
 			other.GetComponent<HeroiScript>().RecebeDano(1);
 			controleGolpe = true;
 		}

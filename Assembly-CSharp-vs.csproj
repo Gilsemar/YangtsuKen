@@ -46,8 +46,14 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Apresentacaop1.cs" />
+     <Compile Include="Assets\Apresentacaop2.cs" />
      <Compile Include="Assets\ChefeScript.cs" />
      <Compile Include="Assets\CongratulationsScript.cs" />
+     <Compile Include="Assets\Credits.cs" />
+     <Compile Include="Assets\HIst2.cs" />
+     <Compile Include="Assets\Hist1.cs" />
+     <Compile Include="Assets\Paragens2.cs" />
      <Compile Include="Assets\Scripts\HeroiControle.cs" />
      <Compile Include="Assets\Scripts\HeroiScript.cs" />
      <Compile Include="Assets\Scripts\Inimigo1Script.cs" />
@@ -76,7 +82,7 @@
      <None Include="Assets\Standard Assets (Mobile)\Shaders\Lightmap Shaders (Legacy)\Mobile Lightmap AlphaTest.shader" />
      <None Include="Assets\Standard Assets\Tessellation Shaders\BumpedSpecularDisplacement.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/Leo/Downloads/Yangtsu Ken1.3/Yangtsu Ken1.3/Yangtsu Ken/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>C:/Users/Leo/Downloads/Yangtsu Ken1.9/Yangtsu Ken/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll</HintPath>

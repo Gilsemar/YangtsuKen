@@ -9,6 +9,7 @@ public class Inimigo1Script : MonoBehaviour {
 	private int vida;
 	private bool controleGolpe, noAtaque;
 	private float tempoAtaque;
+	public GameObject Inimigo;
 	// Use this for initialization
 	void Start () {
 		Velocidade = 20;
@@ -34,7 +35,7 @@ public class Inimigo1Script : MonoBehaviour {
 			transform.LookAt (GameObject.Find("Heroi").transform.position);
 			transform.Translate (0, 0, Velocidade * Time.deltaTime);
 			//GameObject.Find("Enemy").animation.Play("InimigoCorrendo");
-			this.transform.FindChild("Enemy").gameObject.animation.Play("InimigoCorrendo");
+			Inimigo.animation.Play("InimigoCorrendo");
 		}
 		
 		if (this.gameObject.transform.position.y <= -100) {
@@ -43,13 +44,13 @@ public class Inimigo1Script : MonoBehaviour {
 
 		if(distancia >= 50)
 		{
-			this.transform.FindChild("Enemy").gameObject.animation.Play("InimigoParado");
+			Inimigo.animation.Play("InimigoParado");
 		}
 
 		///ATAQUE
 		if(distancia <= 11 && !noAtaque)
 		{
-			this.transform.FindChild("Enemy").gameObject.animation.Play("InimigoAtacando1");
+			Inimigo.animation.Play("InimigoAtacando1");
 			tempoAtaque = Time.time;
 			//tempoAtaque+= GameObject.Find("Tahon").animation["HeroiAtacando1"].time;
 			tempoAtaque+=1.5F;
@@ -60,20 +61,17 @@ public class Inimigo1Script : MonoBehaviour {
 			noAtaque = false;
 		}
 
-		if (!this.transform.FindChild("Enemy").gameObject.animation.IsPlaying ("InimigoAtacando1")) {
+		if (!Inimigo.animation.IsPlaying ("InimigoAtacando1")) {
 			controleGolpe = false;	
 			noAtaque = false;
 		}
 	}
 
 	void OnTriggerStay (Collider other) {
-		Debug.Log ("na colisao");
-		Debug.Log ("controleGolpe " + controleGolpe);
-		Debug.Log ("noAtaque " + noAtaque);
 		
 		
 		if (other.tag == "Heroi" && !controleGolpe && noAtaque) {
-			Debug.Log ("pontuou!!!");
+			//Debug.Log ("pontuou!!!");
 			other.GetComponent<HeroiScript>().RecebeDano(1);
 			controleGolpe = true;
 		}

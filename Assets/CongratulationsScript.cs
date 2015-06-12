@@ -12,7 +12,7 @@ public class CongratulationsScript : MonoBehaviour {
 	void Update () {
 		if(Input.GetKey(KeyCode.KeypadEnter)||Input.GetKey(KeyCode.Return))
 		{
-			Application.LoadLevel("Titulo");
+			Application.LoadLevel("Agradecimentos");
 		}
 	
 	}

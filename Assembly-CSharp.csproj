@@ -46,8 +46,14 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Apresentacaop1.cs" />
+     <Compile Include="Assets\Apresentacaop2.cs" />
      <Compile Include="Assets\ChefeScript.cs" />
      <Compile Include="Assets\CongratulationsScript.cs" />
+     <Compile Include="Assets\Credits.cs" />
+     <Compile Include="Assets\HIst2.cs" />
+     <Compile Include="Assets\Hist1.cs" />
+     <Compile Include="Assets\Paragens2.cs" />
      <Compile Include="Assets\Scripts\HeroiControle.cs" />
      <Compile Include="Assets\Scripts\HeroiScript.cs" />
      <Compile Include="Assets\Scripts\Inimigo1Script.cs" />
